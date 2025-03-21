@@ -1,0 +1,53 @@
+import React, { useState } from "react";
+import './LanguageSelector.css';
+import esFlag from './icons/spain-flag.svg';
+import enFlag from './icons/england-flag.svg';
+import frFlag from './icons/france-flag.svg';
+import ruFlag from './icons/russia-flag.svg';
+import geFlag from './icons/germany-flag.svg';
+
+interface Language {
+  code: string;
+  label: string;
+  flag: string;
+}
+
+const languages: Language[] = [
+  { code: "es", label: "Español", flag: esFlag },
+  { code: "en", label: "English", flag: enFlag },
+  { code: "fr", label: "Français", flag: frFlag },
+  { code: "ru", label: "Russian", flag: ruFlag },
+  { code: "ge", label: "Germany", flag: geFlag },
+];
+
+const LanguageSelector: React.FC = () => {
+  const [selectedLanguage, setSelectedLanguage] = useState<Language>(languages[0]);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const handleSelect = (lang: Language) => {
+    setSelectedLanguage(lang);
+    setIsOpen(false);
+  };
+
+  return (
+    <div className="lang-wrapper">
+      <button className="lang-button" onClick={() => setIsOpen(!isOpen)}>
+        <img src={selectedLanguage.flag} alt={selectedLanguage.label} className="flag-icon" />
+        <span className="lang-label">{selectedLanguage.label}</span>
+      </button>
+
+      {isOpen && (
+        <div className="lang-options">
+          {languages.map(lang => (
+            <button key={lang.code} onClick={() => handleSelect(lang)} className="lang-option">
+              <img src={lang.flag} alt={lang.label} className="flag-icon" />
+              <span>{lang.label}</span>
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default LanguageSelector;

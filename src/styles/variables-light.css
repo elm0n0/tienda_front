@@ -1,0 +1,14 @@
+:root {
+  --primary-color: #3D89CF;
+  --secondary-color: #CF3D3D;
+  --terciary-color: #244D73;
+
+  --background-color: #FFFFFF;
+  --text-primary-color: #000000;
+  --text-header-color: #333333;
+  --text-body-color: #333333;
+
+  --font-family: 'Roboto Flex', sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-bold: 700;
+}

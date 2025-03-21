@@ -1,0 +1,31 @@
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 99.9%;
+    margin: 0.1%;
+    gap: 10px;
+}
+
+.logo-container {
+    flex: 0 0 10%;
+    max-width: 150px;
+    cursor: pointer;
+}
+
+.logo {
+    background-color: var(--text-primary-color);
+    width: 140px;
+    height: 60px;
+}
+
+.search-container {
+    flex: 1; 
+    min-width: 400px;
+  }
+
+  .language-selector-container,
+  .header-register-container,
+  .cesta-container {
+    flex: 0 0 auto;
+  }

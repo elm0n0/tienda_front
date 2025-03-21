@@ -1,0 +1,45 @@
+@import './variables-light.css';
+
+:root[data-theme="dark"] {
+    /* Colores */
+    --primary-color: #3D89CF;
+    --secondary-color: #CF3D3D;
+    --terciary-color: #244D73;
+    --fourt-color: #922d2d;
+
+    --background-color: #0A0A14;
+
+    --text-primary-color: #BDBDBD;
+    --text-secondary-color: #666666;
+    --text-disabled: #212121;
+    --text-link-color: #1E88E5;
+    --text-error-color: #D32F2F;
+    --text-header-color: #D9D9D9;
+    --text-body-color: #D9D9D9;
+
+    --text-gray-escale1: #5F5F5F;
+    --text-gray-escale2: #BABABA;
+
+    /* Tipografía */
+    --font-family: 'Roboto Flex', sans-serif;
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+}
+
+body {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-normal);
+    font-size: 16px;
+    background-color: var(--background-color);
+    color: var(--primary-color);
+    margin: 0;
+    padding: 0;
+}
+
+h2 {
+    font-family: var(--font-family);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-header-color);
+    font-size: 32px;
+    margin: 0 auto;
+}
