@@ -4,7 +4,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(10, 10, 20, 0.6);
+  background: var(--modal-background-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,44 +13,32 @@
 
 .modal-content {
   background: var(--background-color);
-  color: var(--text-body-color);
-  padding: 24px;
+  padding: 11px 24px 24px 24px;
   border-radius: 12px;
   width: 90%;
-  max-width: 400px;
+  max-width: 500px;
   position: relative;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0px 20px var(--modal-background-box-shadow-color);
 }
 
-.close-button {
+.auth-modal-input-wrapper-container {
+  width: 100%;
+  border: 2px solid var(--text-gray-escale1);
+  border-radius: 0px 0px 8px 8px;
+}
+
+.auth-modal-input-wrapper {
+  padding: 15px;
+}
+
+.auth-modal-close-button-container {
   position: absolute;
   top: 12px;
   right: 16px;
   font-size: 20px;
-  background: transparent;
-  border: none;
-  color: var(--text-body-color);
-  cursor: pointer;
 }
 
-.auth-modal-input {
-  width: 100%;
+.auth-model-submit-button-container {
+  min-width: 150px;
   padding: 10px;
-  margin-top: 12px;
-  border: 1px solid var(--text-gray-escale1);
-  border-radius: 8px;
-  background-color: transparent;
-  color: var(--text-body-color);
-}
-
-.auth-model-submit-button {
-  width: 100%;
-  margin-top: 16px;
-  padding: 10px;
-  background-color: var(--primary-color);
-  border: none;
-  border-radius: 8px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
 }

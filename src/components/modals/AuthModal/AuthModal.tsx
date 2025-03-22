@@ -1,21 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AuthModal.css";
+import Button from "../../Button/Button";
+import Input from "../../Input/Input";
 
 interface AuthModalProps {
   onClose: () => void;
 }
 
 const AuthModal: React.FC<AuthModalProps> = ({ onClose }) => {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleOnchangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmail(e.target.value);
+  };
+  const handleOnchangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value);
+  };
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={e => e.stopPropagation()}>
-        <button className="close-button" type="button" onClick={onClose}>×</button>
-        <h2>Inicia sesión o regístrate</h2>
-
-        {/* Aquí puedes poner los Inputs reales, o componentes como <LoginForm /> / <RegisterForm /> */}
-        <input className="auth-modal-input" type="email" placeholder="Correo electrónico" />
-        <input className="auth-modal-input" type="password" placeholder="Contraseña" />
-        <button className="auth-model-submit-button" type="submit">Entrar</button>
+        <div className="auth-modal-close-button-container">
+          <Button type="button" onClick={onClose}>×</Button>
+        </div>
+        <h2>Iniciar sesión</h2>
+        <div className="auth-modal-input-wrapper-container">
+          <div className="auth-modal-input-wrapper">
+            <Input
+              title="Email"
+              type="text"
+              value={email}
+              onChange={handleOnchangeEmail}
+              placeholder="Correo Electronico"
+            />
+            <Input
+              title="Password"
+              type="password"
+              value={password}
+              onChange={handleOnchangePassword}
+              placeholder="Password"
+            />
+          </div>
+          <div className="auth-model-submit-button-container">
+            <Button type="submit" onClick={onClose}>Entrar</Button>
+          </div>
+        </div>
       </div>
     </div>
   );

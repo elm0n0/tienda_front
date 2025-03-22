@@ -1,18 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './Home.css';
-import { useNavigate } from 'react-router-dom';
-import { checkToken } from '../../utils/auth';
+
 import Header from '../../components/headers/header';
 
 const Home: React.FC = () => {
-
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (!checkToken()) {
-      navigate('/login');
-    }
-  }, [navigate]);
 
   return (
     <>

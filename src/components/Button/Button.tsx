@@ -9,7 +9,7 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({ onClick, children, type = 'button' }) => {
 
-  const buttonClass = type === 'submit' ? 'btn-submit' : 'button';
+  const buttonClass = type === 'submit' ? 'btn-submit' : 'btn-button';
 
   return (
     <button type={type} onClick={onClick} className={buttonClass}>

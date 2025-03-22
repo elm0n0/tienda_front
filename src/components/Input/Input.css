@@ -1,12 +1,3 @@
-
-.input-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0px;
-    width: 100%;
-}
-
 .input-wrapper {
     position: relative;
     width: 100%;
@@ -15,6 +6,7 @@
 }
 
 .input{
+    width: 100%;
     min-width: 180px;
     font-family: var(--font-family);
     font-weight: var(--font-weight-bold);
