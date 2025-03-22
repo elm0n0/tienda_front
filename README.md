@@ -72,7 +72,7 @@ Contribuciones son bienvenidas 🚀
 ---
 
 ## 📄 Licencia
-Este proyecto está bajo una licencia propietaria. No se permite su uso, distribución, modificación o adaptación sin el consentimiento expreso y por escrito del propietario. Para obtener más información, por favor contacta al propietario a través de [correo electrónico o contacto].
+Este proyecto está bajo una licencia propietaria. No se permite su uso, distribución, modificación o adaptación sin el consentimiento expreso y por escrito del propietario. Para obtener más información, por favor contacta al propietario a través de [juanjo.perez.plaza@gmail.com].
 
 
 Proyecto desarrollado por elm0n0
