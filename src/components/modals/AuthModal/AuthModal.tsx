@@ -23,7 +23,10 @@ const AuthModal: React.FC<AuthModalProps> = ({ onClose }) => {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={e => e.stopPropagation()}>
         <div className="auth-modal-close-button-container">
-          <Button type="button" onClick={onClose}>×</Button>
+          <Button
+            type="button"
+            onClick={onClose}
+            name="primary">×</Button>
         </div>
         <h2>Iniciar sesión</h2>
         <div className="auth-modal-input-wrapper-container">
@@ -44,7 +47,14 @@ const AuthModal: React.FC<AuthModalProps> = ({ onClose }) => {
             />
           </div>
           <div className="auth-model-submit-button-container">
-            <Button type="submit" onClick={onClose}>Entrar</Button>
+            <Button
+              type="submit"
+              onClick={onClose}
+              name="primary" >Entrar</Button>
+            <Button
+              type="submit"
+              onClick={onClose}
+              name="secondary">registrarse</Button>
           </div>
         </div>
       </div>

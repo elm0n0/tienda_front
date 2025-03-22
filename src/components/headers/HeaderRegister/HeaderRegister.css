@@ -1,13 +1,13 @@
 .register-button {
-    background: none;
-    border: none;
-    color: var(--text-body-color);
-    font-weight: bold;
-    cursor: pointer;
-    padding: 6px 12px;
-    border-radius: 6px;
-  }
-  
-  .register-button:hover {
-    background-color: var(--text-gray-escale2);
-  }
+  background: none;
+  border: none;
+  color: var(--text-body-color);
+  font-weight: bold;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 6px;
+}
+
+.register-button:hover {
+  background-color: var(--text-gray-escale2);
+}
