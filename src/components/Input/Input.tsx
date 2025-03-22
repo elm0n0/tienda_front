@@ -26,7 +26,7 @@ const Input: React.FC<InputProps> = ({ title, type, value, onChange, placeholder
   };
 
   return (
-    <>
+    <div className='input-container'>
       <p className="pInput">{title}</p>
       <div className="input-wrapper">
         <input
@@ -40,7 +40,7 @@ const Input: React.FC<InputProps> = ({ title, type, value, onChange, placeholder
           <img src={showIcon} alt="Mostrar contraseña" onClick={togglePasswordVisibility} className="eye-icon" />
         )}
       </div>
-    </>
+    </div>
   );
 };
 

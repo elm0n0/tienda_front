@@ -13,7 +13,6 @@ const HeaderRegister: React.FC = () => {
         name="primary">
         iniciar sesion
       </Button>
-
       {isOpen && <AuthModal onClose={() => setIsOpen(false)} />}
     </div>
   );

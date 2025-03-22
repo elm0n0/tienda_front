@@ -21,6 +21,15 @@
   box-shadow: 0 0px 20px var(--modal-background-box-shadow-color);
 }
 
+.auth-modal-title {
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.auth-modal-title.fade-out {
+  opacity: 0;
+}
+
 .auth-modal-input-wrapper-container {
   width: 100%;
   border: 2px solid var(--text-gray-escale1);
@@ -36,6 +45,13 @@
   top: 12px;
   right: 16px;
   font-size: 20px;
+}
+
+.auth-modal-name-surname-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 5px;
 }
 
 .auth-model-submit-button-container {
