@@ -38,6 +38,10 @@
     cursor: pointer;
 }
 
+.search-button:hover {
+    background-color: var(--terciary-color);
+}
+
 .search-button:focus {
     outline: none;
     box-shadow: none;

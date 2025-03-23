@@ -208,30 +208,28 @@ const AuthModal: React.FC<AuthModalProps> = ({ onClose }) => {
             )}
             {isRegistering && (
               <>
-                <div className="auth-modal-name-surname-container">
-                  <Input
-                    title="Nombre"
-                    type="text"
-                    name="nombre"
-                    value={formState.nombre}
-                    onChange={handleChange}
-                    placeholder="nombre"
-                    hasError={!validations.nombre.valid}
-                    error={validations.nombre.errorMessage}
-                    onBlur={() => handleBlur("nombre")}
-                  />
-                  <Input
-                    title="Apellidos"
-                    type="text"
-                    name="apellidos"
-                    value={formState.apellidos}
-                    onChange={handleChange}
-                    placeholder="Apellidos"
-                    hasError={!validations.apellidos.valid}
-                    error={validations.apellidos.errorMessage}
-                    onBlur={() => handleBlur("apellidos")}
-                  />
-                </div>
+                <Input
+                  title="Nombre"
+                  type="text"
+                  name="nombre"
+                  value={formState.nombre}
+                  onChange={handleChange}
+                  placeholder="nombre"
+                  hasError={!validations.nombre.valid}
+                  error={validations.nombre.errorMessage}
+                  onBlur={() => handleBlur("nombre")}
+                />
+                <Input
+                  title="Apellidos"
+                  type="text"
+                  name="apellidos"
+                  value={formState.apellidos}
+                  onChange={handleChange}
+                  placeholder="Apellidos"
+                  hasError={!validations.apellidos.valid}
+                  error={validations.apellidos.errorMessage}
+                  onBlur={() => handleBlur("apellidos")}
+                />
                 <Input
                   title="Usuario"
                   type="text"

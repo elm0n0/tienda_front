@@ -41,7 +41,12 @@ const Input: React.FC<InputProps> = ({
 
   return (
     <div className="input-container">
-      <p className="pInput">{title}</p>
+      <div className="input-header">
+        <p className="pInput">{title}</p>
+        {hasError && error &&
+          <p className="error-message-inline"
+            title={error}>{error}</p>}
+      </div>
       <div className={`input-wrapper ${hasError ? 'input-error' : ''}`}>
         <input
           type={type === 'password' && !showPassword ? 'password' : 'text'}
@@ -61,7 +66,6 @@ const Input: React.FC<InputProps> = ({
           />
         )}
       </div>
-      {hasError && error && <p className="error-message">{error}</p>}
     </div>
   );
 };
