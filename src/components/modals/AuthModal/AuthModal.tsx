@@ -1,62 +1,107 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "./AuthModal.css";
 import Button from "../../Button/Button";
 import Input from "../../Input/Input";
-import { authService } from "../../../services/auth/authService";
 import { LoginRequest, RegisterRequest } from "../../../services/auth/types/auth";
+import { authService } from "../../../services/auth/authService";
+import { isValidApellidos, isValidEmail, isValidNombre, isValidPassword, isValidUsuario, validateForm } from "../../../utils/validators/formsValidators";
+import { validateField } from "../../../utils/validators/helpers/validationHelpers";
 
 interface AuthModalProps {
   onClose: () => void;
 }
 
 const AuthModal: React.FC<AuthModalProps> = ({ onClose }) => {
+  const [formState, setFormState] = useState({
+    email: "",
+    password: "",
+    nombre: "",
+    apellidos: "",
+    usuario: "",
+  });
 
-  /** login */
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [validations, setValidations] = useState({
+    email: { valid: true, errorMessage: "" },
+    password: { valid: true, errorMessage: "" },
+    nombre: { valid: true, errorMessage: "" },
+    apellidos: { valid: true, errorMessage: "" },
+    usuario: { valid: true, errorMessage: "" },
+  });
 
-  /** register */
-  const [nombre, setNombre] = useState("");
-  const [apellidos, setApellidos] = useState("");
-  const [usuario, setUsuario] = useState("");
-
-  /** controls */
   const [isRegistering, setIsRegistering] = useState(false);
   const [isFading, setIsFading] = useState(false);
 
+  useEffect(() => {
+    return () => {
+      setFormState({
+        email: "",
+        password: "",
+        nombre: "",
+        apellidos: "",
+        usuario: "",
+      });
+      setValidations({
+        email: { valid: true, errorMessage: "" },
+        password: { valid: true, errorMessage: "" },
+        nombre: { valid: true, errorMessage: "" },
+        apellidos: { valid: true, errorMessage: "" },
+        usuario: { valid: true, errorMessage: "" },
+      });
+    };
+  }, []);
 
-  const handleOnchangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(e.target.value);
-  };
-  const handleOnchangePassword = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPassword(e.target.value);
-  };
-
-  const handleOnchangeNombre = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setNombre(e.target.value);
-  };
-  const handleOnchangeApellidos = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setApellidos(e.target.value);
-  };
-  const handleOnchangeUsuario = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUsuario(e.target.value);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setFormState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
-  const handleSwapRegister = () => {
+  const handleBlur = (field: keyof typeof formState) => {
+    const { valid, errorMessage } = validateField(field, formState[field]);
+    setValidations((prevValidations) => ({
+      ...prevValidations,
+      [field]: { valid, errorMessage },
+    }));
+  };
+
+  const handleSwapRegister = useCallback(() => {
     setIsFading(true);
     setTimeout(() => {
-      setIsRegistering(!isRegistering);
+      setIsRegistering((prev) => !prev);
       setIsFading(false);
     }, 250);
+    clearValidators();
+  }, []);
+
+  const clearValidators = () => {
+    setValidations({
+      email: { valid: true, errorMessage: "" },
+      password: { valid: true, errorMessage: "" },
+      nombre: { valid: true, errorMessage: "" },
+      apellidos: { valid: true, errorMessage: "" },
+      usuario: { valid: true, errorMessage: "" },
+    });
   };
 
   const handleLogin = async () => {
-    if (!email || !password) {
-      console.log("Por favor, ingresa tu email y contraseña.");
+    const loginValidation = validateForm([
+      { field: "email", value: formState.email, validators: [isValidEmail] },
+      { field: "password", value: formState.password, validators: [isValidPassword] },
+    ]);
+
+    setValidations((prevValidations) => ({
+      ...prevValidations,
+      email: loginValidation.email,
+      password: loginValidation.password,
+    }));
+
+    if (!loginValidation.email.valid || !loginValidation.password.valid) {
       return;
     }
 
-    const loginRequest: LoginRequest = { credential: email, password };
+    const loginRequest: LoginRequest = { credential: formState.email, password: formState.password };
 
     try {
       const response = await authService.login(loginRequest);
@@ -73,38 +118,40 @@ const AuthModal: React.FC<AuthModalProps> = ({ onClose }) => {
   };
 
   const handleRegister = async () => {
+    const registerValidation = validateForm([
+      { field: "email", value: formState.email, validators: [isValidEmail] },
+      { field: "password", value: formState.password, validators: [isValidPassword] },
+      { field: "nombre", value: formState.nombre, validators: [isValidNombre] },
+      { field: "apellidos", value: formState.apellidos, validators: [isValidApellidos] },
+      { field: "usuario", value: formState.usuario, validators: [isValidUsuario] },
+    ]);
 
-    if (!email || !password) {
-      console.log("Por favor, ingresa tu email.");
-      return;
-    }
-    if (!password) {
-      console.log("Por favor, ingresa tu password.");
-      return;
-    }
+    setValidations((prevValidations) => ({
+      ...prevValidations,
+      email: registerValidation.email,
+      password: registerValidation.password,
+      nombre: registerValidation.nombre,
+      apellidos: registerValidation.apellidos,
+      usuario: registerValidation.usuario,
+    }));
 
-    if (!nombre) {
-      console.log("Por favor, ingresa tu nombre.");
-      return;
-    }
-
-    if (!apellidos) {
-      console.log("Por favor, ingresa tus apellidos.");
-      return;
-    }
-
-    if (!usuario) {
-      console.log("Por favor, ingresa tu usuario.");
+    if (
+      !registerValidation.email.valid ||
+      !registerValidation.password.valid ||
+      !registerValidation.nombre.valid ||
+      !registerValidation.apellidos.valid ||
+      !registerValidation.usuario.valid
+    ) {
       return;
     }
 
     const registerRequest: RegisterRequest = {
-      email,
-      password,
-      nombre,
-      apellidos,
-      usuario,
-    }
+      email: formState.email,
+      password: formState.password,
+      nombre: formState.nombre,
+      apellidos: formState.apellidos,
+      usuario: formState.usuario,
+    };
 
     try {
       const response = await authService.register(registerRequest);
@@ -118,17 +165,15 @@ const AuthModal: React.FC<AuthModalProps> = ({ onClose }) => {
       console.error("Error en login:", error);
       console.log("Ocurrió un error al registrar el usuario. Intentalo nuevamente.");
     }
-
   };
 
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="auth-modal-close-button-container">
-          <Button
-            type="button"
-            onClick={onClose}
-            name="primary">×</Button>
+          <Button type="button" onClick={onClose} name="primary">
+            ×
+          </Button>
         </div>
         <h2 className={`auth-modal-title ${isFading ? "fade-out" : ""}`}>
           {isRegistering ? "Registrarse" : "Iniciar sesión"}
@@ -140,71 +185,96 @@ const AuthModal: React.FC<AuthModalProps> = ({ onClose }) => {
                 <Input
                   title="Email"
                   type="text"
-                  value={email}
-                  onChange={handleOnchangeEmail}
+                  name="email"
+                  value={formState.email}
+                  onChange={handleChange}
                   placeholder="Correo Electronico"
+                  hasError={!validations.email.valid}
+                  error={validations.email.errorMessage}
+                  onBlur={() => handleBlur("email")}
                 />
                 <Input
                   title="Password"
                   type="password"
-                  value={password}
-                  onChange={handleOnchangePassword}
+                  name="password"
+                  value={formState.password}
+                  onChange={handleChange}
                   placeholder="Password"
+                  hasError={!validations.password.valid}
+                  error={validations.password.errorMessage}
+                  onBlur={() => handleBlur("password")}
                 />
               </>
             )}
-            {
-              isRegistering && (
-                <>
-                  <div className="auth-modal-name-surname-container">
-                    <Input
-                      title="Nombre"
-                      type="text"
-                      value={nombre}
-                      onChange={handleOnchangeNombre}
-                      placeholder="nombre"
-                    />
-                    <Input
-                      title="Apellidos"
-                      type="text"
-                      value={apellidos}
-                      onChange={handleOnchangeApellidos}
-                      placeholder="nombre"
-                    />
-                  </div>
+            {isRegistering && (
+              <>
+                <div className="auth-modal-name-surname-container">
                   <Input
-                    title="Usuario"
+                    title="Nombre"
                     type="text"
-                    value={usuario}
-                    onChange={handleOnchangeUsuario}
-                    placeholder="Usuario"
+                    name="nombre"
+                    value={formState.nombre}
+                    onChange={handleChange}
+                    placeholder="nombre"
+                    hasError={!validations.nombre.valid}
+                    error={validations.nombre.errorMessage}
+                    onBlur={() => handleBlur("nombre")}
                   />
                   <Input
-                    title="Email"
+                    title="Apellidos"
                     type="text"
-                    value={email}
-                    onChange={handleOnchangeEmail}
-                    placeholder="Correo Electronico"
+                    name="apellidos"
+                    value={formState.apellidos}
+                    onChange={handleChange}
+                    placeholder="Apellidos"
+                    hasError={!validations.apellidos.valid}
+                    error={validations.apellidos.errorMessage}
+                    onBlur={() => handleBlur("apellidos")}
                   />
-                  <Input
-                    title="Password"
-                    type="password"
-                    value={password}
-                    onChange={handleOnchangePassword}
-                    placeholder="Password"
-                  />
-                </>
-              )}
+                </div>
+                <Input
+                  title="Usuario"
+                  type="text"
+                  name="usuario"
+                  value={formState.usuario}
+                  onChange={handleChange}
+                  placeholder="Usuario"
+                  hasError={!validations.usuario.valid}
+                  error={validations.usuario.errorMessage}
+                  onBlur={() => handleBlur("usuario")}
+                />
+                <Input
+                  title="Email"
+                  type="text"
+                  name="email"
+                  value={formState.email}
+                  onChange={handleChange}
+                  placeholder="Correo Electronico"
+                  hasError={!validations.email.valid}
+                  error={validations.email.errorMessage}
+                  onBlur={() => handleBlur("email")}
+                />
+                <Input
+                  title="Password"
+                  type="password"
+                  name="password"
+                  value={formState.password}
+                  onChange={handleChange}
+                  placeholder="Password"
+                  hasError={!validations.password.valid}
+                  error={validations.password.errorMessage}
+                  onBlur={() => handleBlur("password")}
+                />
+              </>
+            )}
           </div>
           <div className="auth-model-submit-button-container">
-            <Button
-              type="submit"
-              onClick={isRegistering ? handleRegister : handleLogin}
-              name="primary" >{isRegistering ? "Registrarse" : "Entrar"}</Button>
-            <Button
-              type="submit"
-              onClick={handleSwapRegister}
-              name="secondary">{!isRegistering ? "Registrarse" : "Iniciar sesión"}</Button>
+            <Button type="submit" onClick={isRegistering ? handleRegister : handleLogin} name="primary">
+              {isRegistering ? "Registrarse" : "Entrar"}
+            </Button>
+            <Button type="submit" onClick={handleSwapRegister} name="secondary">
+              {!isRegistering ? "Registrarse" : "Iniciar sesión"}
+            </Button>
           </div>
         </div>
       </div>

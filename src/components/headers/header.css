@@ -20,12 +20,12 @@
 }
 
 .search-container {
-    flex: 1; 
+    flex: 1;
     min-width: 400px;
-  }
+}
 
-  .language-selector-container,
-  .header-register-container,
-  .cesta-container {
+.language-selector-container,
+.header-register-container,
+.cesta-container {
     flex: 0 0 auto;
-  }
+}
