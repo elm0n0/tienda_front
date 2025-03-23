@@ -12,7 +12,10 @@ import {
 } from "../../../utils/validators/formsValidators";
 import { validateField } from "../../../utils/validators/helpers/validationHelpers";
 import { authService } from "../../../services/auth/authService";
-import { LoginRequest, RegisterRequest } from "../../../services/auth/types/auth";
+import { RegisterRequest } from "../../../services/auth/types/RegisterRequest";
+import { LoginRequest } from "../../../services/auth/types/LoginRequest";
+import { useDispatch } from "react-redux";
+import { setAuthUser } from "../../../store/auth/authSlice";
 
 interface AuthFormProps {
     isRegistering: boolean;
@@ -20,11 +23,15 @@ interface AuthFormProps {
     onSuccess: () => void;
 }
 
+
 const AuthForm: React.FC<AuthFormProps> = ({
     isRegistering,
     setIsRegistering,
     onSuccess
 }) => {
+
+    const dispatch = useDispatch();
+
     const [formState, setFormState] = useState({
         email: "",
         password: "",
@@ -74,8 +81,10 @@ const AuthForm: React.FC<AuthFormProps> = ({
 
             try {
                 const response = await authService.register(registerRequest);
-                console.log(response);
-                if (response) onSuccess();
+                if (response) {
+                    dispatch(setAuthUser(response));
+                    onSuccess();
+                }
             } catch (err) {
                 console.error("Error en registro:", err);
             }
@@ -100,8 +109,10 @@ const AuthForm: React.FC<AuthFormProps> = ({
 
             try {
                 const response = await authService.login(loginRequest);
-                console.log(response);
-                if (response) onSuccess();
+                if (response) {
+                    dispatch(setAuthUser(response));
+                    onSuccess();
+                }
             } catch (err) {
                 console.error("Error en login:", err);
             }

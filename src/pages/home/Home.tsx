@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Home.css';
 import Header from '../../components/headers/Header';
+import { useDispatch } from 'react-redux';
+import { setAuthUser } from '../../store/auth/authSlice';
 
 const Home: React.FC = () => {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("AuthUser");
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      dispatch(setAuthUser(user));
+    }
+  }, [dispatch]);
+
 
   return (
     <>
