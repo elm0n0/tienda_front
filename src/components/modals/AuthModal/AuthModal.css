@@ -26,10 +26,6 @@
   transition: opacity 0.5s ease-in-out;
 }
 
-.auth-modal-title.fade-out {
-  opacity: 0;
-}
-
 .auth-modal-input-wrapper-container {
   width: 100%;
   border: 2px solid var(--text-gray-escale1);

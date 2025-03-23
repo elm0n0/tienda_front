@@ -4,13 +4,6 @@ interface FieldToValidate {
   validators: Validator[];
 }
 
-interface FormValidationResult {
-  [field: string]: {
-    valid: boolean;
-    errorMessage: string;
-  };
-}
-
 export interface ValidationRule {
   field: string;
   value: string;
@@ -24,6 +17,11 @@ export interface ValidationResult {
 }
 
 export type Validator = (value: string) => ValidationResult;
+
+export type FormValidationResult = Record<
+  string,
+  { valid: boolean; errorMessage: string }
+>;
 
 export const isValidEmail: Validator = (email) => {
   const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
