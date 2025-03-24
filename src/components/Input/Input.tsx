@@ -47,7 +47,7 @@ const Input: React.FC<InputProps> = ({
           <p className="error-message-inline"
             title={error}>{error}</p>}
       </div>
-      <div className={`input-wrapper ${hasError ? 'input-error' : ''}`}>
+      <div className={`input-wrapper`}>
         <input
           type={type === 'password' && !showPassword ? 'password' : 'text'}
           value={value}

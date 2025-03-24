@@ -16,7 +16,6 @@ const Home: React.FC = () => {
     }
   }, [dispatch]);
 
-
   return (
     <>
       <div className='header-container'>

@@ -6,6 +6,7 @@ import LanguageSelector from '../LanguageSelector/LanguageSelector';
 import HeaderRegister from './HeaderRegister/HeaderRegister';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store/auth';
+import HeaderLogedMenu from './HeaderLogedMenu/HeaderLogedMenu';
 
 const Header: React.FC = () => {
 
@@ -16,7 +17,7 @@ const Header: React.FC = () => {
         : true;
 
     return (
-        <div className='header-container'>
+        <>
             <div className='logo-container'>
                 <img className='logo' src={logo} alt="logo" />
             </div>
@@ -27,19 +28,13 @@ const Header: React.FC = () => {
                 <LanguageSelector />
             </div>
             <div className='header-register-container'>
-                {
-                    !isTokenExpired &&
-                    <span>Hola, {authUserData?.email}</span>
-                }
-                {
-                    isTokenExpired &&
-                    <HeaderRegister />
-                }
+                {!isTokenExpired && <HeaderLogedMenu />}
+                {isTokenExpired && <HeaderRegister />}
             </div>
             <div className='cesta-container'>
                 <div>cesta</div>
             </div>
-        </div>
+        </>
     );
 };
 

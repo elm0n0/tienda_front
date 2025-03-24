@@ -32,15 +32,13 @@ const LanguageSelector: React.FC = () => {
   return (
     <div className="lang-wrapper">
       <button className="lang-button" onClick={() => setIsOpen(!isOpen)}>
-        <img src={selectedLanguage.flag} alt={selectedLanguage.label} className="flag-icon" />
-        <span className="lang-label">{selectedLanguage.label}</span>
+        <img className="flag-icon" src={selectedLanguage.flag} alt={selectedLanguage.label} />
       </button>
-
       {isOpen && (
         <div className="lang-options">
           {languages.map(lang => (
             <button key={lang.code} onClick={() => handleSelect(lang)} className="lang-option">
-              <img src={lang.flag} alt={lang.label} className="flag-icon" />
+              <img src={lang.flag} alt={lang.label} className="flag-icon-lang" />
               <span>{lang.label}</span>
             </button>
           ))}

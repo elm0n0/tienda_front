@@ -17,21 +17,28 @@
 }
 
 .input {
-
-    font-family: var(--font-family);
-    font-weight: var(--font-weight-bold);
-    font-size: 12px;
+    font-family: var(--font-family-base);
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-md);
 
     width: 100%;
     min-width: 80px;
 
-    background-color: var(--background-color);
-    color: var(--text-body-color);
+    background-color: var(--color-background);
+    color: var(--text-body);
 
-    border: 2px solid var(--text-gray-escale2);
+    border: 2px solid var(--color-primary);
     border-radius: 0 0 10px 10px;
     padding: 10px 10px 10px 10px;
 }
+
+.input:focus {
+    border: 2px solid var(--color-secondary);
+    outline: none;
+  }
+  
+
+
 
 .pInput {
     font-family: var(--font-family);
@@ -39,7 +46,7 @@
     font-size: 14px;
     margin: 0;
 
-    color: var(--text-gray-escale2);
+    color: var(--text-body);
 }
 
 .input::placeholder {
@@ -48,7 +55,7 @@
     font-size: 12px;
 
     padding: 5px;
-    color: var(--text-gray-escale1);
+    color: var(--text-secondary);
 }
 
 .eye-icon {
@@ -64,12 +71,10 @@
     transition: opacity 0.2s ease-in-out;
 }
 
-.input-wrapper.input-error .input {
-    border: 1px solid var(--secondary-color);
-}
+
 
 .error-message-inline {
-    color: var(--secondary-color);
+    color: var(--text-error);
     font-size: clamp(10px, 2vw, 12px);
     margin: 0;
     padding-left: 10px;

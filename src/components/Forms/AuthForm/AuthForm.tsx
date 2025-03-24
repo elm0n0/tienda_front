@@ -1,6 +1,9 @@
 import React, { useState, useCallback } from "react";
 import Input from "../../Input/Input";
 import Button from "../../Button/Button";
+
+import './AuthForm.css';
+
 import {
     FormValidationResult,
     isValidApellidos,
@@ -124,13 +127,13 @@ const AuthForm: React.FC<AuthFormProps> = ({
             <div className="auth-modal-input-wrapper">
                 {isRegistering && (
                     <>
-                        <Input {...inputProps("nombre")} />
-                        <Input {...inputProps("apellidos")} />
-                        <Input {...inputProps("usuario")} />
+                        <Input {...inputProps("nombre","eg: Tienda")} />
+                        <Input {...inputProps("apellidos","eg: Online")} />
+                        <Input {...inputProps("usuario", "eg: TiendaOnline123")} />
                     </>
                 )}
-                <Input {...inputProps("email")} />
-                <Input {...inputProps("password")} />
+                <Input {...inputProps("email","eg: tienda.online@tiendaonline.com")} />
+                <Input {...inputProps("password","eg: tuTiendaOnline*123")} />
             </div>
             <div className="auth-model-submit-button-container">
                 <Button type="submit" onClick={handleSubmit} name="primary">
@@ -143,14 +146,16 @@ const AuthForm: React.FC<AuthFormProps> = ({
         </div>
     );
 
-    function inputProps(field: keyof typeof formState) {
+    function inputProps(field: keyof typeof formState,
+        customPlaceholder?: string
+    ) {
         return {
             title: field.charAt(0).toUpperCase() + field.slice(1),
             type: field === "password" ? "password" : "text",
             name: field,
             value: formState[field],
             onChange: handleChange,
-            placeholder: field.charAt(0).toUpperCase() + field.slice(1),
+            placeholder: customPlaceholder || field.charAt(0).toUpperCase() + field.slice(1),
             hasError: !validations[field].valid,
             error: validations[field].errorMessage,
             onBlur: () => handleBlur(field),
