@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import './LanguageSelector.css';
 import esFlag from './icons/spain-flag.svg';
 import enFlag from './icons/england-flag.svg';
@@ -23,14 +23,31 @@ const languages: Language[] = [
 const LanguageSelector: React.FC = () => {
   const [selectedLanguage, setSelectedLanguage] = useState<Language>(languages[0]);
   const [isOpen, setIsOpen] = useState(false);
+  const selectorRef = useRef<HTMLDivElement>(null);
 
   const handleSelect = (lang: Language) => {
     setSelectedLanguage(lang);
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (selectorRef.current && !selectorRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
   return (
-    <div className="lang-wrapper">
+    <div className="lang-wrapper" ref={selectorRef}>
       <button className="lang-button" onClick={() => setIsOpen(!isOpen)}>
         <img className="flag-icon" src={selectedLanguage.flag} alt={selectedLanguage.label} />
       </button>
