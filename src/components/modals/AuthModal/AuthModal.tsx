@@ -1,21 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import "./AuthModal.css";
+import Button from "../../Button/Button";
+import AuthForm from "../../Forms/AuthForm/AuthForm";
 
 interface AuthModalProps {
   onClose: () => void;
 }
 
 const AuthModal: React.FC<AuthModalProps> = ({ onClose }) => {
+  const [isRegistering, setIsRegistering] = useState(false);
+
   return (
     <div className="modal-overlay" onClick={onClose}>
-      <div className="modal-content" onClick={e => e.stopPropagation()}>
-        <button className="close-button" type="button" onClick={onClose}>×</button>
-        <h2>Inicia sesión o regístrate</h2>
-
-        {/* Aquí puedes poner los Inputs reales, o componentes como <LoginForm /> / <RegisterForm /> */}
-        <input className="auth-modal-input" type="email" placeholder="Correo electrónico" />
-        <input className="auth-modal-input" type="password" placeholder="Contraseña" />
-        <button className="auth-model-submit-button" type="submit">Entrar</button>
+      <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+        <div className="auth-modal-close-button-container">
+          <Button type="button" onClick={onClose} name="primary">
+            ×
+          </Button>
+        </div>
+        <h2 className="auth-modal-title">
+          {isRegistering ? "Registrarse" : "Iniciar sesión"}
+        </h2>
+        <AuthForm
+          isRegistering={isRegistering}
+          setIsRegistering={setIsRegistering}
+          onSuccess={onClose}
+        />
       </div>
     </div>
   );

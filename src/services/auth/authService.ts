@@ -1,30 +1,62 @@
-import { AuthResponse, LoginRequest } from "./types/auth";
+import httpService from "../httpService";
+import { AuthResponseAPI } from "./types/AuthResponse";
+import { LoginRequest } from "./types/LoginRequest";
+import {
+  RefreshTokenRequest,
+} from "./types/RefreshTokenRequest";
+import { RegisterRequest } from "./types/RegisterRequest";
 
+const REPOSITORY_BASE = "/auth";
 
-const API_URL = 'http://localhost:8080/auth/login';
+const LOGIN_PATH = "/login";
 
-export const authService = {
-  login: async (loginRequest: LoginRequest): Promise<AuthResponse | null> => {
-    try {
-      const response = await fetch(API_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'User-Agent': navigator.userAgent,
-        },
-        body: JSON.stringify(loginRequest),
-      });
+const REGISTER_PATH = "/register";
 
-      if (!response.ok) {
-        throw new Error('Error en la autenticación');
+const REFRESH_TOKEN_PATH = "/refresh-token";
+
+export interface IAuthService {
+  login(loginRequest: LoginRequest): Promise<AuthResponseAPI | null>;
+  register(registerRequest: RegisterRequest): Promise<AuthResponseAPI | null>;
+  refreshToken(registerRequest: RefreshTokenRequest): Promise<AuthResponseAPI | null>;
+}
+
+export class AuthService implements IAuthService {
+  async login(loginRequest: LoginRequest): Promise<AuthResponseAPI | null> {
+    return await httpService<AuthResponseAPI, LoginRequest>(
+      REPOSITORY_BASE,
+      LOGIN_PATH,
+      {
+        method: "POST",
+        body: loginRequest,
       }
+    );
+  }
 
-      const data: AuthResponse = await response.json();
-      return data;
-    } catch (error) {
-      console.error('Error en login:', error);
-      return null;
-    }
-  },
-};
-  
+  async register(
+    registerRequest: RegisterRequest
+  ): Promise<AuthResponseAPI | null> {
+    return await httpService<AuthResponseAPI, RegisterRequest>(
+      REPOSITORY_BASE,
+      REGISTER_PATH,
+      {
+        method: "POST",
+        body: registerRequest,
+      }
+    );
+  }
+
+  async refreshToken(
+    refreshToken: RefreshTokenRequest
+  ): Promise<AuthResponseAPI | null> {
+    return await httpService<AuthResponseAPI, RefreshTokenRequest>(
+      REPOSITORY_BASE,
+      REFRESH_TOKEN_PATH,
+      {
+        method: "POST",
+        body: refreshToken,
+      }
+    );
+  }
+}
+
+export const authService = new AuthService();

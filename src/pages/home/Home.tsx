@@ -1,18 +1,20 @@
 import React, { useEffect } from 'react';
 import './Home.css';
-import { useNavigate } from 'react-router-dom';
-import { checkToken } from '../../utils/auth';
-import Header from '../../components/headers/header';
+import Header from '../../components/headers/Header';
+import { useDispatch } from 'react-redux';
+import { setAuthUser } from '../../store/auth/authSlice';
 
 const Home: React.FC = () => {
 
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    if (!checkToken()) {
-      navigate('/login');
+    const storedUser = localStorage.getItem("AuthUser");
+    if (storedUser) {
+      const user = JSON.parse(storedUser);
+      dispatch(setAuthUser(user));
     }
-  }, [navigate]);
+  }, [dispatch]);
 
   return (
     <>

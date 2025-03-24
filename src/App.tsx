@@ -1,8 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Login from './pages/Login/Login';
-import Home from './pages/home/Home';
-import { ThemeProvider } from './contexts/providers/ThemeProvider';
+import Home from './pages/Home/Home';
+import { ThemeProvider } from './contexts/Providers/ThemeProvider';
 
 const App: React.FC = () => {
 
@@ -10,8 +9,7 @@ const App: React.FC = () => {
     <ThemeProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="*" element={<Home />} />
         </Routes>
       </Router>
     </ThemeProvider>
