@@ -1,0 +1,8 @@
+{
+  "INVALID_EMAIL": "Die E-Mail-Adresse ist ungültig.",
+  "REQUIRED_FIELD": "Dieses Feld ist erforderlich.",
+  "INVALID_PASSWORD": "Das Passwort muss mindestens 12 Zeichen lang sein und Großbuchstaben, Kleinbuchstaben, eine Zahl und ein Symbol enthalten.",
+  "INVALID_NAME": "Der Vorname muss mindestens 4 Buchstaben enthalten.",
+  "INVALID_SURNAME": "Der Nachname muss mindestens 4 Buchstaben enthalten. Leerzeichen sind erlaubt.",
+  "INVALID_USERNAME": "Der Benutzername muss mindestens 4 Zeichen enthalten, bestehend aus Buchstaben und Zahlen."
+}

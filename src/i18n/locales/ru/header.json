@@ -1,0 +1,43 @@
+{
+  "HEADER": {
+    "SEARCH": {
+      "SEARCH": "Поиск",
+      "FILTER": "Фильтр"
+    },
+    "REGISTER": {
+      "REGISTER": "Войти",
+      "AUTH_MODAL": {
+        "REGISTER": "Регистрация",
+        "LOGIN": "Войти"
+      }
+    },
+    "LOGED_MENU": {
+      "HELLOW": "Привет",
+      "LOGOUT": "Выйти",
+      "AUTH_FORM": {
+        "NAME_INPUT": {
+          "NAME": "Имя",
+          "PLACEHOLDER": "например: Магазин"
+        },
+        "SURNAME_INPUT": {
+          "NAME": "Фамилия",
+          "PLACEHOLDER": "например: Онлайн"
+        },
+        "USER_INPUT": {
+          "NAME": "Пользователь",
+          "PLACEHOLDER": "например: OnlineShop123"
+        },
+        "EMAIL_INPUT": {
+          "NAME": "Эл. почта",
+          "PLACEHOLDER": "например: shop.online@shoponline.com"
+        },
+        "PASSWORD_INPUT": {
+          "NAME": "Пароль",
+          "PLACEHOLDER": "например: MyShopOnline*123"
+        },
+        "REGISTER_BUTON": "Регистрация",
+        "LOGIN_BUTON": "Войти"
+      }
+    }
+  }
+}

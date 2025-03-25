@@ -1,0 +1,9 @@
+{
+    "INVALID_EMAIL": "The email address is not valid.",
+    "REQUIRED_FIELD": "Este campo es obligatorio.",
+    "INVALID_PASSWORD": "The password must be at least 12 characters, including uppercase, lowercase, a number, and a symbol.",
+    "INVALID_NAME": "The name must have a minimum of 4 letters.",
+    "INVALID_SURNAME": "The last name must have a minimum of 4 letters and spaces are allowed.",
+    "INVALID_USERNAME": "The user must have a minimum of 4 characters that are letters and numbers."
+  }
+  

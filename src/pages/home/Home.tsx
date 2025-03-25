@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
 import './Home.css';
-import Header from '../../components/headers/Header';
+import Header from '../../components/headers/header';
 import { useDispatch } from 'react-redux';
 import { setAuthUser } from '../../store/auth/authSlice';
+
 
 const Home: React.FC = () => {
 

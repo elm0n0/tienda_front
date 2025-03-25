@@ -2,8 +2,12 @@ import React, { useState } from "react";
 
 import './Search.css';
 import searchIcon from './icons/search-dark.svg';
+import { useTranslation } from "react-i18next";
 
 const Search: React.FC = () => {
+
+    const { t } = useTranslation();
+
     const [search, setSearch] = useState('');
 
     const handleSearch = () => {
@@ -12,14 +16,14 @@ const Search: React.FC = () => {
 
     return (
         <div className="search-border">
-            <button className="search-button" type="button" >filtros</button>
+            <button className="search-button" type="button" >{t('HEADER.SEARCH.FILTER')}</button>
             <input
                 className="search-input"
                 title="buscador"
                 type="Search"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                placeholder="buscar en la tienda"
+                placeholder={t('HEADER.SEARCH.SEARCH')}
             />
             <div className="search-icon-container">
                 <img className="search-icon" src={searchIcon} alt="Search Icon" onClick={handleSearch} />

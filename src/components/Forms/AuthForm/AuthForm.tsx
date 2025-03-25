@@ -19,6 +19,7 @@ import { RegisterRequest } from "../../../services/auth/types/RegisterRequest";
 import { LoginRequest } from "../../../services/auth/types/LoginRequest";
 import { useDispatch } from "react-redux";
 import { setAuthUser } from "../../../store/auth/authSlice";
+import { useTranslation } from "react-i18next";
 
 interface AuthFormProps {
     isRegistering: boolean;
@@ -32,7 +33,7 @@ const AuthForm: React.FC<AuthFormProps> = ({
     setIsRegistering,
     onSuccess
 }) => {
-
+    const { t } = useTranslation();    
     const dispatch = useDispatch();
 
     const [formState, setFormState] = useState({
@@ -127,30 +128,32 @@ const AuthForm: React.FC<AuthFormProps> = ({
             <div className="auth-modal-input-wrapper">
                 {isRegistering && (
                     <>
-                        <Input {...inputProps("nombre","eg: Tienda")} />
-                        <Input {...inputProps("apellidos","eg: Online")} />
-                        <Input {...inputProps("usuario", "eg: TiendaOnline123")} />
+                        <Input {...inputProps(t('HEADER.LOGED_MENU.AUTH_FORM.NAME_INPUT.NAME'),"nombre",t('HEADER.LOGED_MENU.AUTH_FORM.NAME_INPUT.PLACEHOLDER'))} />
+                        <Input {...inputProps(t('HEADER.LOGED_MENU.AUTH_FORM.SURNAME_INPUT.NAME'),"apellidos",t('HEADER.LOGED_MENU.AUTH_FORM.SURNAME_INPUT.PLACEHOLDER'))} />
+                        <Input {...inputProps(t('HEADER.LOGED_MENU.AUTH_FORM.USER_INPUT.NAME'),"usuario", t('HEADER.LOGED_MENU.AUTH_FORM.USER_INPUT.PLACEHOLDER'))} />
                     </>
                 )}
-                <Input {...inputProps("email","eg: tienda.online@tiendaonline.com")} />
-                <Input {...inputProps("password","eg: tuTiendaOnline*123")} />
+                <Input {...inputProps(t('HEADER.LOGED_MENU.AUTH_FORM.EMAIL_INPUT.NAME'),"email",t('HEADER.LOGED_MENU.AUTH_FORM.EMAIL_INPUT.PLACEHOLDER'))} />
+                <Input {...inputProps(t('HEADER.LOGED_MENU.AUTH_FORM.PASSWORD_INPUT.NAME'),"password",t('HEADER.LOGED_MENU.AUTH_FORM.PASSWORD_INPUT.PLACEHOLDER'))} />
             </div>
             <div className="auth-model-submit-button-container">
                 <Button type="submit" onClick={handleSubmit} name="primary">
-                    {isRegistering ? "Registrarse" : "Entrar"}
+                    {isRegistering ? t('HEADER.LOGED_MENU.AUTH_FORM.REGISTER_BUTON') : t('HEADER.LOGED_MENU.AUTH_FORM.LOGIN_BUTON')}
                 </Button>
                 <Button type="submit" onClick={handleSwapRegister} name="secondary">
-                    {isRegistering ? "Iniciar sesión" : "Registrarse"}
+                    {isRegistering ? t('HEADER.LOGED_MENU.AUTH_FORM.LOGIN_BUTON') : t('HEADER.LOGED_MENU.AUTH_FORM.REGISTER_BUTON')}
                 </Button>
             </div>
         </div>
     );
 
-    function inputProps(field: keyof typeof formState,
+    function inputProps(
+        title: string,
+        field: keyof typeof formState,
         customPlaceholder?: string
     ) {
         return {
-            title: field.charAt(0).toUpperCase() + field.slice(1),
+            title: title,
             type: field === "password" ? "password" : "text",
             name: field,
             value: formState[field],

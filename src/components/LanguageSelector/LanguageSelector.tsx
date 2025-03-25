@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next"; // Importamos useTranslation
 import './LanguageSelector.css';
 import esFlag from './icons/spain-flag.svg';
 import enFlag from './icons/england-flag.svg';
@@ -17,18 +18,28 @@ const languages: Language[] = [
   { code: "en", label: "English", flag: enFlag },
   { code: "fr", label: "Français", flag: frFlag },
   { code: "ru", label: "Russian", flag: ruFlag },
-  { code: "ge", label: "Germany", flag: geFlag },
+  { code: "de", label: "Germany", flag: geFlag },
 ];
 
 const LanguageSelector: React.FC = () => {
+  const { i18n } = useTranslation();
   const [selectedLanguage, setSelectedLanguage] = useState<Language>(languages[0]);
   const [isOpen, setIsOpen] = useState(false);
   const selectorRef = useRef<HTMLDivElement>(null);
 
   const handleSelect = (lang: Language) => {
+    i18n.changeLanguage(lang.code);
     setSelectedLanguage(lang);
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    const currentLangCode = i18n.language.split("-")[0];
+    const foundLang = languages.find((lang) => lang.code === currentLangCode);
+    if (foundLang) {
+      setSelectedLanguage(foundLang);
+    }
+  }, [i18n.language]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
