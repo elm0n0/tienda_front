@@ -1,7 +1,43 @@
 {
-    "HEADER": {
-        "SEARCH":{
-            "SEARCH":"Buscar"
-        }
+  "HEADER": {
+    "SEARCH": {
+      "SEARCH": "Buscar",
+      "FILTER": "Filtro"
+    },
+    "REGISTER": {
+      "REGISTER": "Identificarse",
+      "AUTH_MODAL": {
+        "REGISTER": "Registrarse",
+        "LOGIN": "Identificarse"
+      }
+    },
+    "LOGED_MENU": {
+      "HELLOW": "Hola",
+      "LOGOUT": "Cerrar Sesión",
+      "AUTH_FORM": {
+        "NAME_INPUT": {
+          "NAME": "Nombre",
+          "PLACEHOLDER": "eg: Tienda"
+        },
+        "SURNAME_INPUT": {
+          "NAME": "Apellidos",
+          "PLACEHOLDER": "eg: Online"
+        },
+        "USER_INPUT": {
+          "NAME": "Usuario",
+          "PLACEHOLDER": "eg: OnlineTienda123"
+        },
+        "EMAIL_INPUT": {
+          "NAME": "EMAIL",
+          "PLACEHOLDER": "ej: tienda.online@shoponline.com"
+        },
+        "PASSWORD_INPUT": {
+          "NAME": "Contraseña",
+          "PLACEHOLDER": "ej: TuTiendaOnline*123"
+        },
+        "REGISTER_BUTON": "Registrarse",
+        "LOGIN_BUTON": "Identificarse"
+      }
     }
+  }
 }

@@ -27,7 +27,7 @@ export const isValidEmail: Validator = (email) => {
   const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   return {
     valid,
-    errorMessage: valid ? "" : "El correo no es válido",
+    errorMessage: valid ? "" : "INVALID_EMAIL",
   };
 };
 
@@ -44,7 +44,7 @@ export const isValidPassword = (password: string): ValidationResult => {
     valid,
     errorMessage: valid
       ? ""
-      : "La contraseña debe tener al menos 12 caracteres, incluyendo mayúsculas, minúsculas, un número y un símbolo.",
+      : "INVALID_PASSWORD",
   };
 };
 
@@ -52,7 +52,7 @@ export const isValidNombre = (nombre: string): ValidationResult => {
   const valid: boolean = /^[A-Za-zÁÉÍÓÚáéíóúÑñ]{4,}$/.test(nombre);
   return {
     valid,
-    errorMessage: valid ? "" : "el Nombre debe tener un minimo de 4 letras",
+    errorMessage: valid ? "" : "INVALID_NAME",
   };
 };
 
@@ -62,7 +62,7 @@ export const isValidApellidos = (apellidos: string): ValidationResult => {
     valid,
     errorMessage: valid
       ? ""
-      : "el Apellido debe tener un minimo de 4 letras y están permitidos los espacios",
+      : "INVALID_SURNAME",
   };
 };
 
@@ -72,7 +72,7 @@ export const isValidUsuario = (usuario: string): ValidationResult => {
     valid,
     errorMessage: valid
       ? ""
-      : "el usuario debe tener un minimo de 4 caracteres que sean letras y numeros",
+      : "INVALID_USERNAME",
   };
 };
 

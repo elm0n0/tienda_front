@@ -5,8 +5,10 @@ import "./HeaderLogedMenu.css";
 import { userService } from "../../../services/user/UserService";
 import { UserResponseAPI } from "../../../services/user/types/UserResponse";
 import { clearAuthUser } from "../../../store/auth/authSlice";
+import { useTranslation } from "react-i18next";
 
 const HeaderLogedMenu: React.FC = () => {
+    const { t } = useTranslation();
     const dispatch = useDispatch();
     const authUser = useSelector((state: RootState) => state.auth.user);
     const [userInfo, setUserInfo] = useState<UserResponseAPI | null>(null);
@@ -48,11 +50,11 @@ const HeaderLogedMenu: React.FC = () => {
 
     return (
         <div className="header-loged-menu-container" onClick={() => setMenuOpen(!menuOpen)} ref={menuRef}>
-            <p className="header-loged-menu-p">hola,</p>
+            <p className="header-loged-menu-p">{t("HEADER.LOGED_MENU.HELLOW")},</p>
             <p className="header-loged-menu-p2">{userInfo?.nombre}</p>
             <div className={`dropdown-menu ${menuOpen ? "show" : ""}`}>
                 <ul>
-                    <li onClick={handleLogout}>Cerrar sesión</li>
+                    <li onClick={handleLogout}>{t("HEADER.LOGED_MENU.LOGOUT")}</li>
                 </ul>
             </div>
         </div>

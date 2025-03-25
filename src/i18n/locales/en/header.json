@@ -1,7 +1,43 @@
 {
-    "HEADER": {
-        "SEARCH":{
-            "SEARCH":"Search"
-        }
+  "HEADER": {
+    "SEARCH": {
+      "SEARCH": "Search",
+      "FILTER": "Filter"
+    },
+    "REGISTER": {
+      "REGISTER": "Log In",
+      "AUTH_MODAL": {
+        "REGISTER": "Register",
+        "LOGIN": "Log In"
+      }
+    },
+    "LOGED_MENU": {
+      "HELLOW": "Hi",
+      "LOGOUT": "Log Out",
+      "AUTH_FORM": {
+        "NAME_INPUT": {
+          "NAME": "Name",
+          "PLACEHOLDER": "eg: Shop"
+        },
+        "SURNAME_INPUT": {
+          "NAME": "Last Name",
+          "PLACEHOLDER": "eg: Online"
+        },
+        "USER_INPUT": {
+          "NAME": "User",
+          "PLACEHOLDER": "eg: OnlineShop123"
+        },
+        "EMAIL_INPUT": {
+          "NAME": "EMAIL",
+          "PLACEHOLDER": "ej: shop.online@shoponline.com"
+        },
+        "PASSWORD_INPUT": {
+          "NAME": "Password",
+          "PLACEHOLDER": "ej: MyShopOnline*123"
+        },
+        "REGISTER_BUTON": "Register",
+        "LOGIN_BUTON": "Log In"
+      }
     }
+  }
 }

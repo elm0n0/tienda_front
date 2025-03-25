@@ -1,0 +1,43 @@
+{
+  "HEADER": {
+    "SEARCH": {
+      "SEARCH": "Suche",
+      "FILTER": "Filter"
+    },
+    "REGISTER": {
+      "REGISTER": "Anmelden",
+      "AUTH_MODAL": {
+        "REGISTER": "Registrieren",
+        "LOGIN": "Anmelden"
+      }
+    },
+    "LOGED_MENU": {
+      "HELLOW": "Hallo",
+      "LOGOUT": "Abmelden",
+      "AUTH_FORM": {
+        "NAME_INPUT": {
+          "NAME": "Name",
+          "PLACEHOLDER": "z. B.: Geschäft"
+        },
+        "SURNAME_INPUT": {
+          "NAME": "Nachname",
+          "PLACEHOLDER": "z. B.: Online"
+        },
+        "USER_INPUT": {
+          "NAME": "Benutzer",
+          "PLACEHOLDER": "z. B.: OnlineShop123"
+        },
+        "EMAIL_INPUT": {
+          "NAME": "E-Mail",
+          "PLACEHOLDER": "z. B.: shop.online@shoponline.com"
+        },
+        "PASSWORD_INPUT": {
+          "NAME": "Passwort",
+          "PLACEHOLDER": "z. B.: MeinShopOnline*123"
+        },
+        "REGISTER_BUTON": "Registrieren",
+        "LOGIN_BUTON": "Anmelden"
+      }
+    }
+  }
+}

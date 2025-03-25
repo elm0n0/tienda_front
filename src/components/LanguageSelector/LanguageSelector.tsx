@@ -18,7 +18,7 @@ const languages: Language[] = [
   { code: "en", label: "English", flag: enFlag },
   { code: "fr", label: "Français", flag: frFlag },
   { code: "ru", label: "Russian", flag: ruFlag },
-  { code: "ge", label: "Germany", flag: geFlag },
+  { code: "de", label: "Germany", flag: geFlag },
 ];
 
 const LanguageSelector: React.FC = () => {
@@ -32,6 +32,14 @@ const LanguageSelector: React.FC = () => {
     setSelectedLanguage(lang);
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    const currentLangCode = i18n.language.split("-")[0];
+    const foundLang = languages.find((lang) => lang.code === currentLangCode);
+    if (foundLang) {
+      setSelectedLanguage(foundLang);
+    }
+  }, [i18n.language]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {

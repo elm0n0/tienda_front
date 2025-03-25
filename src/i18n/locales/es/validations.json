@@ -1,0 +1,8 @@
+{
+  "INVALID_EMAIL": "El correo electrónico no es válido.",
+  "REQUIRED_FIELD": "Este campo es obligatorio.",
+  "INVALID_PASSWORD": "La contraseña debe tener al menos 12 caracteres, incluyendo mayúsculas, minúsculas, un número y un símbolo.",
+  "INVALID_NAME": "El nombre debe tener un minimo de 4 letras.",
+  "INVALID_SURNAME": "El apellido debe tener un minimo de 4 letras y están permitidos los espacios.",
+  "INVALID_USERNAME": "el usuario debe tener un minimo de 4 caracteres que sean letras y numeros."
+}

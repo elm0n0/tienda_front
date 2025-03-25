@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import eyeShowIcon from './icons/eye-show-password-ico-dark.svg';
 import eyeHiddenIcon from './icons/eye-hidden-password-ico-dark.svg';
 import './Input.css'
+import { useTranslation } from 'react-i18next';
 
 interface InputProps {
   title: string;
@@ -26,6 +27,7 @@ const Input: React.FC<InputProps> = ({
   hasError = false,
   onBlur
 }) => {
+  const { t } = useTranslation("validations");
   const [showPassword, setShowPassword] = useState(false);
   const [showIcon, setShowIcon] = useState(eyeShowIcon);
 
@@ -45,7 +47,7 @@ const Input: React.FC<InputProps> = ({
         <p className="pInput">{title}</p>
         {hasError && error &&
           <p className="error-message-inline"
-            title={error}>{error}</p>}
+            title={t(error)}>{t(error)}</p>}
       </div>
       <div className={`input-wrapper`}>
         <input

@@ -16,7 +16,7 @@ const Search: React.FC = () => {
 
     return (
         <div className="search-border">
-            <button className="search-button" type="button" >filtros</button>
+            <button className="search-button" type="button" >{t('HEADER.SEARCH.FILTER')}</button>
             <input
                 className="search-input"
                 title="buscador"
