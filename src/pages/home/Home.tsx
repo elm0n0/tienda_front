@@ -3,6 +3,7 @@ import './Home.css';
 import Header from '../../components/headers/header';
 import { useDispatch } from 'react-redux';
 import { setAuthUser } from '../../store/auth/authSlice';
+import NavBarList from '../../components/NavBarList/NavBarList';
 
 
 const Home: React.FC = () => {
@@ -22,7 +23,9 @@ const Home: React.FC = () => {
       <div className='header-container'>
         <Header></Header>
       </div>
-      <div>menu con modificacion</div>
+      <div className='nav-bar-list-container'>
+        <NavBarList />
+      </div>
       <div>contenido a elegir entre plantillas</div>
       <div>pie de pagina</div>
     </>
