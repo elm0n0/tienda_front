@@ -38,6 +38,9 @@
         "REGISTER_BUTON": "Registrieren",
         "LOGIN_BUTON": "Anmelden"
       }
+    },
+    "BASKET": {
+      "TITLE": "Warenkorb"
     }
   }
 }

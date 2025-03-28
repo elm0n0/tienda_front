@@ -38,6 +38,9 @@
         "REGISTER_BUTON": "Registrarse",
         "LOGIN_BUTON": "Identificarse"
       }
+    },
+    "BASKET": {
+      "TITLE": "Cesta"
     }
   }
 }

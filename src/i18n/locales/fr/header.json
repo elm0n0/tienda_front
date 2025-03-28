@@ -1,44 +1,46 @@
 {
-    "HEADER": {
-      "SEARCH": {
-        "SEARCH": "Rechercher",
-        "FILTER": "Filtrer"
-      },
-      "REGISTER": {
-        "REGISTER": "Se connecter",
-        "AUTH_MODAL": {
-          "REGISTER": "S'inscrire",
-          "LOGIN": "Se connecter"
-        }
-      },
-      "LOGED_MENU": {
-        "HELLOW": "Salut",
-        "LOGOUT": "Se déconnecter",
-        "AUTH_FORM": {
-          "NAME_INPUT": {
-            "NAME": "Prénom",
-            "PLACEHOLDER": "ex : Boutique"
-          },
-          "SURNAME_INPUT": {
-            "NAME": "Nom de famille",
-            "PLACEHOLDER": "ex : En ligne"
-          },
-          "USER_INPUT": {
-            "NAME": "Utilisateur",
-            "PLACEHOLDER": "ex : BoutiqueEnLigne123"
-          },
-          "EMAIL_INPUT": {
-            "NAME": "E-mail",
-            "PLACEHOLDER": "ex : boutique.enligne@boutique.com"
-          },
-          "PASSWORD_INPUT": {
-            "NAME": "Mot de passe",
-            "PLACEHOLDER": "ex : MaBoutique*123"
-          },
-          "REGISTER_BUTON": "S'inscrire",
-          "LOGIN_BUTON": "Se connecter"
-        }
+  "HEADER": {
+    "SEARCH": {
+      "SEARCH": "Rechercher",
+      "FILTER": "Filtrer"
+    },
+    "REGISTER": {
+      "REGISTER": "Se connecter",
+      "AUTH_MODAL": {
+        "REGISTER": "S'inscrire",
+        "LOGIN": "Se connecter"
       }
+    },
+    "LOGED_MENU": {
+      "HELLOW": "Salut",
+      "LOGOUT": "Se déconnecter",
+      "AUTH_FORM": {
+        "NAME_INPUT": {
+          "NAME": "Prénom",
+          "PLACEHOLDER": "ex : Boutique"
+        },
+        "SURNAME_INPUT": {
+          "NAME": "Nom de famille",
+          "PLACEHOLDER": "ex : En ligne"
+        },
+        "USER_INPUT": {
+          "NAME": "Utilisateur",
+          "PLACEHOLDER": "ex : BoutiqueEnLigne123"
+        },
+        "EMAIL_INPUT": {
+          "NAME": "E-mail",
+          "PLACEHOLDER": "ex : boutique.enligne@boutique.com"
+        },
+        "PASSWORD_INPUT": {
+          "NAME": "Mot de passe",
+          "PLACEHOLDER": "ex : MaBoutique*123"
+        },
+        "REGISTER_BUTON": "S'inscrire",
+        "LOGIN_BUTON": "Se connecter"
+      }
+    },
+    "BASKET": {
+      "TITLE": "Panier"
     }
   }
-  
+}

@@ -1,19 +1,52 @@
 .header-cesta-container {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    gap: 8px;
 
     height: 50px;
+    padding: 0 12px;
 
     background-color: var(--color-primary);
-    
     border-radius: 8px;
     border: 2px solid var(--color-secondary);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.header-cesta-container p {
+.header-cesta-container:hover {
+    border-color: var(--color-tertiary);
+    background-color: var(--color-secondary);
+}
+
+.basket-icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.basket-icon {
+    width: 24px;
+    height: 24px;
+}
+
+.basket-count {
+    position: absolute;
+    top: -11px;
+    right: -3px;
+    background-color: var(--text-error);
     color: var(--text-body);
-    margin-left: 5px;
-    margin-right: 5px;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-medium);
+    border-radius: 50%;
+    padding: 1px;
+    min-width: 15px;
+    text-align: center;
+}
+
+.basket-label {
+    color: var(--text-body);
+    font-weight: 500;
+    font-size: 14px;
+    user-select: none;
 }

@@ -38,6 +38,9 @@
         "REGISTER_BUTON": "Регистрация",
         "LOGIN_BUTON": "Войти"
       }
+    },
+    "BASKET": {
+      "TITLE": "Корзина"
     }
   }
 }

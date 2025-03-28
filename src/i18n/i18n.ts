@@ -57,7 +57,4 @@ i18n
     },
   });
 
-console.log(navigator.language);
-console.log(i18n.language);
-
 export default i18n;
