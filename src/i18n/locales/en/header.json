@@ -38,6 +38,9 @@
         "REGISTER_BUTON": "Register",
         "LOGIN_BUTON": "Log In"
       }
+    },
+    "BASKET": {
+      "TITLE": "Basket"
     }
   }
 }
