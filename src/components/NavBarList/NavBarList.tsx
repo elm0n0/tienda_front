@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './NavBarList.css';
+import Menu from '../Menu/Menu';
 
 const NavBarList: React.FC = () => {
 
@@ -28,6 +29,7 @@ const NavBarList: React.FC = () => {
           >☰ Menú</button>
         </div>
         <div className="menu-sections">
+          {/** componente menu-section-list */}
           <span>Sección 1</span>
           <span>Sección 2</span>
           <span>Sección 3</span>
@@ -41,17 +43,9 @@ const NavBarList: React.FC = () => {
           <span>🔥 Oferta del Mes</span>
         </div>
       </div>
-      <div className={`menu-dropdown ${open ? 'show' : ''} ${isClosing ? 'closing' : ''}`}>
-        <div className='menu-header'>
-          <span className='menu-title'>Hola, Nombre</span>
-          <button className='menu-close'
-            onClick={handleToggleMenu}
-          >✖</button>
-        </div>
-        <div className='menu-content'>
-          <p>Contenido del menú aquí...</p>
-        </div>
-      </div>
+      {(open || isClosing) && (
+        <Menu isOpen={open} isClosing={isClosing} onClose={handleToggleMenu} />
+      )}
     </>
   );
 };
