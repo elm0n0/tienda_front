@@ -20,12 +20,8 @@ const Home: React.FC = () => {
 
   return (
     <>
-      <div className='header-container'>
-        <Header></Header>
-      </div>
-      <div className='nav-bar-list-container'>
-        <NavBarList />
-      </div>
+      <Header/>
+      <NavBarList />
       <div>contenido a elegir entre plantillas</div>
       <div>pie de pagina</div>
     </>
