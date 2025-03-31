@@ -1,4 +1,3 @@
-// Menu.tsx
 import React, { useEffect, useState } from "react";
 import './menu.css';
 import MenuCard from "../MenuCard/MenuCard";
@@ -30,21 +29,46 @@ const Menu: React.FC<MenuProps> = ({ isOpen, isClosing, onClose }) => {
 
     const sections: Section[] = [
         {
-            title: "Tendencias",
-            subsections: ["Lo más vendidos", "Últimas novedades", "Productos del momento"]
+            title: "seccion 1",
+            subsections: ["subseccion 1", "subseccion 2", "subseccion 3"]
         },
         {
-            title: "Dispositivos Digitales",
-            subsections: ["Smartphones", "Tablets", "Laptops", "Accesorios"]
+            title: "seccion 2",
+            subsections: ["subseccion 1", "subseccion 2", "subseccion 3", "subseccion 4"]
         },
         {
-            title: "Electrodomésticos",
-            subsections: ["Refrigeradores", "Lavadoras", "Microondas"]
+            title: "seccion 3",
+            subsections: ["subseccion 1", "subseccion 2"]
         },
         {
-            title: "Moda",
-            subsections: ["Hombres", "Mujeres", "Niños"]
-        }
+            title: "seccion 4",
+            subsections: ["subseccion 1", "subseccion 2", "subseccion 3"]
+        },
+        {
+            title: "seccion 5",
+            subsections: ["subseccion 1", "subseccion 2", "subseccion 3", "subseccion 4", "subseccion 5", "subseccion 6"]
+        },
+        {
+            title: "seccion 6",
+            subsections: ["subseccion 1", "subseccion 2", "subseccion 3", "subseccion 4", "subseccion 5", "subseccion 6"]
+        },
+        {
+            title: "seccion 7",
+            subsections: ["subseccion 1", "subseccion 2", "subseccion 3", "subseccion 4", "subseccion 5", "subseccion 6"]
+        },
+        {
+            title: "seccion 8",
+            subsections: ["subseccion 1", "subseccion 2", "subseccion 3", "subseccion 4", "subseccion 5", "subseccion 6"]
+        },
+        {
+            title: "seccion 9",
+            subsections: ["subseccion 1", "subseccion 2", "subseccion 3", "subseccion 4", "subseccion 5", "subseccion 6"]
+        },
+        {
+            title: "seccion 10",
+            subsections: ["subseccion 1", "subseccion 2", "subseccion 3", "subseccion 4", "subseccion 5", "subseccion 6"]
+        },
+
     ];
 
     return (

@@ -6,7 +6,6 @@ interface ThemeContextType {
 }
 export const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-// Hook para usar el contexto
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (!context) {

@@ -1,14 +1,16 @@
 .menu-dropdown {
-    position: absolute;
-    top: 65px;
+    position: fixed; 
+    top: 65px; 
     left: 0;
-    z-index: 10;
+    z-index: 1000;
     background-color: transparent;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     overflow: hidden;
     transform: translateX(-100%);
     transition: transform 0.3s ease-out;
+    height: calc(100vh - 65px - 80px);
+    box-sizing: border-box;
 }
 
 .menu-dropdown.show {
@@ -45,4 +47,13 @@
     padding: 12px;
     background-color: var(--color-primary);
     color: var(--text-body);
+    overflow-y: auto;
+    height: calc(100% - 24px);
+    box-sizing: border-box;
+}
+
+.menu-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 }

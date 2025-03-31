@@ -1,4 +1,3 @@
-// NavBar.tsx
 import React from 'react';
 import './NavBar.css';
 import Menu from '../Menu/Menu';

@@ -1,6 +1,4 @@
 import React from "react";
-
-import './NavVarSection.css';
 import CustomLink from "../../Link/Link";
 
 interface NavBarSectionProps {

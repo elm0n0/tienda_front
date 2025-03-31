@@ -20,7 +20,6 @@ const httpService = async <TResponse, TBody = undefined>(
   const isGET = rest.method === "GET";
   let url = `${API_BASE_URL}:${API_PORT}${controllerPath}${path}`;
 
-  // Si es GET y hay body, convertirlo a query params
   if (isGET && body && typeof body === "object") {
     const queryParams = new URLSearchParams(
       body as Record<string, string>
@@ -44,7 +43,6 @@ const httpService = async <TResponse, TBody = undefined>(
 
   let response = await doFetch();
 
-  // Si está expirado (401), intentamos refrescar el token
   if (response.status === 401) {
 
     const token = store.getState().auth.user?.device.accessToken;
