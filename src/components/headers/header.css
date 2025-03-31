@@ -1,4 +1,12 @@
 .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 99.8%;
+    margin: 0.2%;
+    height: 70px;
+    gap: 5px;
+
     background-color: var(--color-surface);
     margin-top: 0px;
     margin-left: 0px;

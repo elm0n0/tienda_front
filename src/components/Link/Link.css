@@ -1,0 +1,15 @@
+.nav-bar-link {
+    font-family: var(--font-family-base);
+    text-decoration: none;
+    font-weight: var(--font-weight-regular);
+    font-size: var(--font-size-md);
+    color: var(--color-primary);
+}
+
+.nav-bar-link:hover {
+    color: var(--text-body);
+}
+
+.nav-bar-link:active {
+    color: var(--color-tertiary);
+}

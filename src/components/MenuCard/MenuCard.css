@@ -1,0 +1,42 @@
+.menu-card {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease-in-out;
+}
+
+.menu-card:hover {
+    transform: scale(1.05);
+}
+
+.menu-card:hover .menu-card-header {
+    color: var(--color-tertiary);
+}
+
+.menu-card-header {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-lg);
+    color: var(--text-body);
+    margin-bottom: 8px;
+    transition: color 0.3s ease-in-out;
+}
+
+.menu-card-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-card-subsection {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    color: var(--text-body);
+    margin-bottom: 6px;
+    padding-left: 16px;
+    padding-right: 16px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out;
+}
+
+.menu-card-subsection:hover {
+    color: var(--color-tertiary);
+}

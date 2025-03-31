@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useTranslation } from "react-i18next"; // Importamos useTranslation
+import { useTranslation } from "react-i18next";
 import './LanguageSelector.css';
 import esFlag from './icons/spain-flag.svg';
 import enFlag from './icons/england-flag.svg';
