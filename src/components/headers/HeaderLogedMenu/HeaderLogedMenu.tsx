@@ -30,6 +30,7 @@ const HeaderLogedMenu: React.FC = () => {
     const handleLogout = () => {
         dispatch(clearAuthUser());
         localStorage.removeItem("AuthUser");
+        window.dispatchEvent(new Event('authUserChanged'));
     };
 
     useEffect(() => {

@@ -18,7 +18,7 @@ const AuthModal: React.FC<AuthModalProps> = ({ onClose }) => {
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <div className="auth-modal-close-button-container">
-          <Button type="button" onClick={onClose} name="primary">
+          <Button type="button" onClick={onClose} variant="primary">
             X
           </Button>
         </div>

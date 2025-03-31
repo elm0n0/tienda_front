@@ -14,7 +14,7 @@ const HeaderRegister: React.FC = () => {
       <Button
         type="button"
         onClick={() => setIsOpen(true)}
-        name="primary">
+        variant="primary">
         {t('HEADER.REGISTER.REGISTER')}
       </Button>
       {isOpen && <AuthModal onClose={() => setIsOpen(false)} />}

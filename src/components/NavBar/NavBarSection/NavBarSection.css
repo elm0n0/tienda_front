@@ -1,0 +1,33 @@
+.add-section-icon {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    margin-left: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.add-section-form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.add-section-form input {
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.add-section-form button {
+    margin-top: 5px;
+    padding: 5px;
+    cursor: pointer;
+}
