@@ -11,6 +11,8 @@
 
   border-radius: 8px;
   border: 2px solid var(--color-secondary);
+
+  z-index: 1000;
 }
 
 .header-loged-menu-container:hover {

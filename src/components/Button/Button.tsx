@@ -1,17 +1,30 @@
-import React from 'react';
-import './Button.css';
+import React from "react";
+import "./Button.css";
 
 interface ButtonProps {
-  name: "primary" | "secondary" | "disabled";
-  onClick: () => void;
+  variant?: "primary" | "secondary" | "disabled";
+  onClick?: () => void;
   children: React.ReactNode;
-  type?: 'button' | 'submit' | 'reset';
+  type?: "button" | "submit" | "reset";
+  className?: string;
+  disabled?: boolean;
 }
 
-const Button: React.FC<ButtonProps> = ({ onClick, children, type = 'button', name }) => {
-
+const Button: React.FC<ButtonProps> = ({
+  onClick,
+  children,
+  type = "button",
+  variant = "primary",
+  className = "",
+  disabled = false,
+}) => {
   return (
-    <button type={type} onClick={onClick} className={"button " + name}>
+    <button
+      type={type}
+      onClick={onClick}
+      className={`button ${variant} ${className}`}
+      disabled={disabled}
+    >
       {children}
     </button>
   );

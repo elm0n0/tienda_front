@@ -1,6 +1,12 @@
+// Menu.tsx
 import React, { useEffect, useState } from "react";
-
 import './menu.css';
+import MenuCard from "../MenuCard/MenuCard";
+
+interface Section {
+    title: string;
+    subsections: string[];
+}
 
 interface MenuProps {
     isOpen: boolean;
@@ -22,6 +28,25 @@ const Menu: React.FC<MenuProps> = ({ isOpen, isClosing, onClose }) => {
         }
     }, [isOpen, isClosing]);
 
+    const sections: Section[] = [
+        {
+            title: "Tendencias",
+            subsections: ["Lo más vendidos", "Últimas novedades", "Productos del momento"]
+        },
+        {
+            title: "Dispositivos Digitales",
+            subsections: ["Smartphones", "Tablets", "Laptops", "Accesorios"]
+        },
+        {
+            title: "Electrodomésticos",
+            subsections: ["Refrigeradores", "Lavadoras", "Microondas"]
+        },
+        {
+            title: "Moda",
+            subsections: ["Hombres", "Mujeres", "Niños"]
+        }
+    ];
+
     return (
         <div className={`menu-dropdown ${shouldShow ? 'show' : ''} ${isClosing ? 'closing' : ''}`}>
             <div className='menu-header'>
@@ -29,7 +54,11 @@ const Menu: React.FC<MenuProps> = ({ isOpen, isClosing, onClose }) => {
                 <button className='menu-close' onClick={onClose}>✖</button>
             </div>
             <div className='menu-content'>
-                <p>Contenido del menú aquí...</p>
+                <div className="menu-cards">
+                    {sections.map((section, index) => (
+                        <MenuCard key={index} title={section.title} subsections={section.subsections} />
+                    ))}
+                </div>
             </div>
         </div>
     );
